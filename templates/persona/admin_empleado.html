@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %}
+Administrar empleados    
+{% endblock titulo %}
+
+
+{% block body %}
+{% include 'includes/header.html' %}    
+<div class="grid-container">
+    <div class="grid-x">
+        <h1>Administrar lista de empleados</h1>
+        <div class="cell">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Departameto</th>
+                        <th winth='150'>Accion</th>
+                    </tr>
+                </thead>
+                <tbody>                    
+                    {% for empleado in empleados  %}
+                    <tr>
+                        <th>{{empleado.id}}</th>
+                        <th>{{empleado.firt_name}}</th>
+                        <th>{{empleado.last_name}}</th>
+                        <th>{{empleado.departamento}}</th>
+                        <th>
+                            <a class="button success" href="{% url 'persona_app:update' empleado.id %}">Editar</a>                                                                       
+                        </th>
+                        <th>
+                            <a class="button warning" href="{% url 'persona_app:delete' empleado.id %}">Eliminar</a>
+                        </th>
+                    </tr>
+                    {% endfor %}                       
+                    
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock body %}
+    
+    

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Detalles Empleados
+{% endblock titulo %}
+
+
+{% block body %}
+    {% include 'includes/header.html' %}
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x align-center ">
+            <div class="cell large-5" style="width: 300px; margin-top: 20px;">
+
+            
+            <div class="card-divider">
+                {{empleado.get_job_display}}
+            </div>
+                            
+                {% if empleado.avatar %}
+                    <img src="{{ empleado.avatar.url }}">
+                
+                {% else %}
+                    <img src="{% static 'img/perfil.webp' %}" >  
+                    <h3>subir uan foto</h3> 
+                
+                {% endif %} 
+                <div class="card-section">
+                    <label>Nombre: {{ empleado.firt_name }}</label>
+                    <label>Apellido: {{ empleado.last_name }}</label>
+                    
+                    <label>Departamento: {{ empleado.departamento.shor_name }}</label>
+                    <p><span class="label">Habilidades:</span></p>
+                    <ul class="vertical menu">                        
+                        {% for habilidad in empleado.skills.all %}
+                        <li>
+                            {{ habilidad.habilidad }}
+                        </li>
+                        {% endfor %}                      
+                    </ul>
+    
+                </div>               
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+    
+    
+
+<h1>DETAIL VIEW {{ titulo }} </h1>
+
+{{object}}
+
+<h1>Detalles empleados</h1>
+
+{{ empleado.firt_name }}  {{ empleado.last_name }}

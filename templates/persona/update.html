@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+
+
+{% block titulo %}
+    Actualizar
+{% endblock titulo %}
+    
+
+
+{% block body %}
+    {% include 'includes/header.html' %}
+    <div class="grid-container">
+        <div class="grid-x">
+            <h1 class="cell large-6">Actualizar usuarios</h1>
+            <div class="cell large-7">
+                <form class="grid-x grid-margin-x" method="post" enctype="multipart/form-data">{% csrf_token %}
+                    <div class="medium-6 cell">
+                        <label>Nombre:
+                            {{form.firt_name}}
+                        </label>
+                    
+                    </div>
+                    <div class="medium-6 cell">
+                        <label>Apellido:
+                            {{form.last_name}}
+                        </label>
+                    
+                    </div>
+                    <div class="medium-6 cell">
+                        <label>Departamento:
+                            {{form.departamento}}
+                        </label>
+                    
+                    </div>
+                    <div class="medium-6 cell">
+                        <label>Trabajo:
+                            {{form.job}}
+                        </label>
+                    
+                    </div>
+                    <div class="medium-6 cell">
+                        <label>Habilidasdes:
+                            {{form.skills}}
+                        </label>
+                    
+                    </div>
+                    <div class="medium-6 cell">
+                        <label>Agregar Imagen :
+                            {{form.avatar}}
+                        </label>
+                    
+                    </div>
+                    <div class="cell">
+                        <button type="sutmit" class="blue button">Actualizar</button>
+                    </div>
+                </form> 
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+    
+
+<div class="medium-6 cell">
+    <label>Nombre:
+        {{form.firt_name}}
+    </label>
+
+</div>
+
+

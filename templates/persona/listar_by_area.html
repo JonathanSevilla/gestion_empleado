@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %}
+    Empleados por area
+{% endblock titulo %}
+
+
+{% block body %}
+    {% include 'includes/header.html' %}  
+    <div class="grid-container">
+        <div class="grid-x">
+            <div class="cell">
+                <h1>Lista de empleados por area </h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="100">  ID</th>
+                            <th width="150">Nombre</th>
+                            <th width="150">Apellido</th>
+                            <th width="150">Departamento</th>
+                            <th width="100">Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        {% for empleado in empleados %}
+                        <tr>
+                            <th>{{empleado.id}}</th>
+                            <th>{{empleado.firt_name}}</th>
+                            <th>{{empleado.last_name}}</th>
+                            <th>{{empleado.departamento}}</th>
+                            <th><a class="button warning" href="">ver</a></th>
+                        </tr>                            
+                        {% endfor %}
+                            
+                    </tbody>
+                </table>
+            </div>
+        </div>        
+    </div>
+       
+{% endblock body %}
+    
+    
+
+<h1>listar por area </h1>
+
+<ul>
+    
+    {% for elemento in object_list %}
+         <il>{{elemento}}</il>
+    {% endfor %}
+        
+
+
+</ul>
